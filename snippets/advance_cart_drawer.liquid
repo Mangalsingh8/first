@@ -1,0 +1,455 @@
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> {% endcomment %}
+
+<style>
+  body.ajax_overlay_is-open::before{
+    content: '';
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+  .js-ajax-cart-drawer{
+    position: fixed;
+    right: -425px;
+    top: 0px;
+    background: #fff;
+    z-index: 9999;
+    box-shadow: 0 0 2px 0px;
+    bottom: 0;
+    transition: 0.55s;
+    width: 100%;
+    max-width: 395px;
+  }
+  .js-ajax-cart-drawer.is-open{
+    right: 0;
+    transition: 0.55s;
+    overflow:auto;
+  }
+  .cart_drawer_header{
+    background: #EFF2F6;
+/*     border-bottom: 2px solid; */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: 1.56rem;
+    line-height: 1.4;
+  }
+  .ajax-cart-drawer__close{
+    padding: 0 12px;
+    cursor: pointer;
+  }
+  .ajax-cart-drawer__buttons{
+    display: block;
+    position: absolute;
+    bottom: 2px;
+    background: #fff;
+    max-width: 420px;
+    width: 100%;
+    margin-top: -12px;
+  }
+  .ajax-cart-drawer__buttons.is-hidden{
+    display: none;
+  }
+  .ajax-cart-drawer__buttons_inner{
+    display: flex;
+/*     border: 1px solid; */
+    margin-top: -10px;
+    padding-bottom: 0px;
+  }
+  .ajax-cart-drawer__buttons_inner a{
+    width: 100%;
+    text-align: -webkit-center;
+    text-align: center;
+    height: 45px;
+    line-height: 22px;
+    border: none;
+  }
+.ajax-cart-drawer__buttons_inner a.button_checkout {
+    background: #e91e63;
+    color: #fff;
+    max-width: 100%;
+    margin: 0 auto;
+}
+  .ajax-cart-drawer__buttons_inner a.button_checkout:hover{
+    border:1px solid;
+  }
+  .ajax-cart-drawer__close span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  #main-nav{
+    width: 400px;
+    max-width: 400px;
+    padding: 20px;
+  }
+  .ajax-cart-drawer__content{
+/*     padding-bottom: 90px!important; */
+    overflow-y: auto;
+/*     height: 300px; */
+/*     margin-bottom: 20px; */
+    padding: 0 15px;
+/*     height: 185px !important; */
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  .ajax-cart-item__single{
+    display: flex;
+    margin: 20px 0;
+/*     padding-bottom: 12px; */
+/*     border-bottom: 1px solid #D7D7D7; */
+  }
+  .js-image_info{
+    width: 25%;
+  }
+  .ajax-cart-drawer__content .cartItem{
+    clear: both;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .title_qty{
+    width: 65%;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+  .ajax-cart-item__quantity{
+    display: flex;
+    align-items: center;
+    border: 1px solid #d7d6d6;
+    width: 100px;
+    border-radius: 4px;
+    color: #6b6b6b;
+  }
+  span.js-qtyplus {cursor: pointer;padding: 5px 5px 5px 5px;border: none;border-radius: 0;font-size: 24px;line-height: 1em; text-align: center;}
+span.js-qtyminus { cursor: pointer;padding: 5px 5px 5px 5px;border: none;border-radius: 0;font-size: 24px;line-height: 1em; text-align: center;}
+  .ajax-change-quantity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:32px;
+    height:32px;
+  }
+  .qty_selector .qty{
+    width:60px;
+    height:40px;
+  }
+  .ajax-cart-drawer__buttons p{
+    text-align: center;
+    margin-top: -1px;
+  }
+  .ajax-cart-drawer__buttons p a{
+    text-decoration: underline;
+  }
+  .ajax-cart-drawer__buttons .delivery_status p{
+    margin: 0;
+  }
+  .js-sub_total{
+    border-top: 1px solid;
+    padding: 15px 0;
+  }
+  .subTotal_price{
+    float: right;
+  }
+.ajax-cart-item__remove{
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 23px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 10px;
+}
+ .ajax-cart-item__remove svg{
+    position: absolute;
+    bottom: 0px;
+ }
+  .product-form__cart-submit{
+    background-color: #000;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .ajax_properties p{
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  .price_qty_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .is-locked .bacurr-cur-blocker{
+    display: none !important;
+  }
+  .ajax-cart-item__image{
+    width: 100%;
+    padding-right: 12px;
+  }
+  .ajax-cart-item__quantity .product-form__input{
+    margin: 0;
+    width: 40px;
+    height: 32px;
+    text-align: -webkit-center;
+    text-align: center;
+    padding:0;
+    border:none;
+    border-right: 1px solid #d7d6d6;
+    border-left: 1px solid #d7d6d6;
+  }
+  .empty_icon_cart svg{
+    width:100%;
+    height:100%;
+  }
+  .empty_icon_cart{
+    max-width: 120px;
+    margin: 0 auto;
+    padding-top: 125px;
+  }
+  .empty_text_cart{
+    text-align: -webkit-center;
+    text-align: center;
+    margin-top: 22px;
+  }
+  .delivery_status{
+    background: #ff0082;
+    text-align: center;
+    padding: 12px;
+    color: #fff;
+  }
+/*   #shopify-section-advance_cart_drawer_recommenndation .product-block{
+    display:none;
+  } */
+  .subtotal_price{
+    padding: 15px 12px;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Apply_coupon{
+    margin:0;
+    text-align:left !important;
+    font-size: 14px;
+    background: #f5d1d7;
+    color: #000;
+    padding: 10px 0 10px 20px;
+  }
+   .js-ajax-remove-from-cart svg{
+      position: absolute;
+      top: 7px;
+    }
+  body.body-js-ajax-cart-overlay:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+  .body-js-ajax-cart-overlay {
+    overflow: hidden;
+}
+.cart_continue_shopping {
+    padding: 12px 16px;
+    width: max-content;
+    color: #fff;
+    margin: 30px auto;
+    text-transform: uppercase;
+    background-color: #ef9a9a;
+    border-bottom: 1px solid #ef9a9a;
+}
+  .Icon {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    fill: currentColor;
+    vertical-align: middle;
+    stroke-width: 1px;
+    background: none;
+    pointer-events: none;
+}
+.cart_continue_shopping a {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color .3s;
+}
+  @media(max-width: 480px){
+    .js-ajax-cart-drawer{
+      right: -385px;
+      max-width: 380px;
+    }
+    .ajax-cart-drawer__buttons{
+      max-width: 380px;
+    }
+  }
+
+   
+  @media screen and (max-width: 1280px){
+    .ajax-cart-drawer__content{
+      
+    }
+  }
+  @media screen and (max-width: 767px) {
+/*     .ajax-cart-drawer__content {
+          overflow-y: auto;
+           height: 300px;
+          margin-bottom: 20px;
+          padding: 20px 15px;
+       height: 289px!important; 
+          height: 400px!important;
+          overflow: scroll;
+          overflow-x: hidden;
+  } */
+
+.ajax-cart-item__single{
+        margin: 10px 0;
+    }
+    .Cart_Compare_price{
+      text-decoration: line-through;
+      margin-left: 10px;
+    } 
+    .ajax-cart-drawer__content .title_qty .item__property{
+      display:none;
+    }
+    
+  }
+/*   mobile view done */
+  @media screen and (min-device-width: 320px) and (max-device-width: 425px) { 
+   .ajax-cart-drawer__content{
+     height: 325px!important;
+      overflow: scroll;
+   }  
+}
+/*   tab view done */
+   @media screen and (min-device-width: 426px) and (max-device-width: 768px) { 
+   .ajax-cart-drawer__content{
+     height: calc(100vh - 400px) !important;
+     overflow: scroll;
+   }  
+}
+/* Desktop view is complete */
+    @media screen and (min-device-width: 769px){ 
+   .ajax-cart-drawer__content{
+     height: calc(100vh - 400px) !important;
+     overflow: scroll;
+     overflow-x: hidden;
+   }
+   }
+</style>
+
+
+<!--ajax cart drawer-->
+<div class="ajax-cart__drawer js-ajax-cart-drawer  11">
+  <div class="ajax-cart-drawer">
+    <!--ajax cart drawer close-->
+    <div class="cart_drawer_header">
+      <span class="cart_heading">Your Shopping Bag</span>
+    <span class="ajax-cart-drawer__close js-ajax-cart-drawer-close">x</span>
+    </div>
+    <div class="loader-cart">
+    <i class="fa fa-spinner fa-spin icon-loader"></i>
+    </div>
+    {% render 'advance-cart-drawer-top' %}
+    <!--end ajax cart drawer close-->
+
+    <!--ajax cart drawer content-->
+    <div class="ajax-cart-drawer__content js-ajax-cart-drawer-content"></div>
+    <!--end ajax cart drawer content-->
+
+    <!--ajax cart drawer buttons-->
+    
+    <div class="ajax-cart-drawer__buttons js-ajax-checkout-button">
+     {% comment  %}
+      <div class="delivery_status">
+        <p>{{ settings.shipping_text }}</p>
+        <p>Free Shipping on orders over Rs. 1500!</p>
+      </div>
+      
+      <p style="text-align:center;font-weight: 700; margin: 8px 0!important;color: #000;">
+      <span style="margin-right: 54px;">Subtotal: <span class="subtotal_price__subtotal"></span></span>
+      </p>
+      {% endcomment %}
+<!--       <p class="Apply_coupon">Have a coupon! Apply at next step ?</p> -->
+      <div class="footer__cart">
+        
+<!--         <div class="footer__payment_main">
+          <h4>Payment Details</h4>
+        </div> -->
+        <div class="shipping__charge">
+          <div class="shipping_txt" style="font-size: 14px">(+)&nbsp Shipping Charge	</div>
+           <div class="shipping_txt_val" data-charge="{{settings.shipping_rate}}" data-limit="{{settings.cart_free_shipping_threshold}}">
+              {% assign limit_for_free_shipping = settings.cart_free_shipping_threshold |times:100 | minus: cart.total_price %}
+            {% if limit_for_free_shipping > 0 %}
+            {{ settings.free_shipping_charge |times:100 |money_without_trailing_zeros}}
+            {% else %}
+            {{'Free'}}
+            {% endif %}
+           </div>
+        </div>
+        {% assign total_saving = 0 %}
+        {% for item in cart.items %}
+        {% if item.variant.compare_at_price > item.variant.price %}
+        {% capture saving %}{{ item.variant.compare_at_price | minus: item.variant.price | times:item.quantity | divided_by: 100 | abs }}{% endcapture %}
+        {% assign total_saving = saving | plus: total_saving %}
+        {% endif %} 
+        {% endfor %}
+
+          <span class="additional_price_val">
+              <span class="gift_wrap_'+itemPrice+'"style="color: #bf285e;font-size: 14px; padding-left: 15px;">(-)&nbsp 5% discount on online payment mode </span>
+              <span id="additional_discount_price" style="color:black;">₹</span>
+           </span>
+        <div class="shipping__charge">
+          <div class="total_saving" style="font-size: 14px">Savings</div>
+          <div id="all_saving_value" cart_saving ></div>
+<!--            <div class="total_saving_val">{{ total_saving }}</div> -->
+       
+        </div>
+
+
+      <div class="shipping__charge order__total"><span>Order Total: <p id="tex__all">Inclusive of all tax</p></p></span><span class="subtotal_price__subtotal"></span>
+      </div>
+         <div class="ajax-cart-drawer__buttons_inner sec__cktout">
+      {% comment %}  <a href="/cart/" class="button button_cart js-button">
+          <span>Go to cart</span>
+        </a>
+        {% endcomment %}
+        <a href="/checkout/" class="button button_checkout js-button" onclick="loader_hit()">
+          <span>Confirm order</span>
+        </a>
+      </div>
+      </div>
+<!--       <div class="ajax-cart-drawer__buttons_inner">
+      {% comment %}  <a href="/cart/" class="button button_cart js-button">
+          <span>Go to cart</span>
+        </a>
+        {% endcomment %}
+        <a href="/checkout/" class="button button_checkout js-button">
+          <span>Checkout</span>
+        </a>
+      </div> -->
+      
+       
+      {% comment %} {% section 'advance_cart_drawer_recommenndation' %}{% endcomment %}
+    </div>
+    <!--end ajax cart drawer buttons-->
+  </div>
+   
+</div>
+<!--end ajax cart drawer-->
+
+<!--ajax cart overlay-->
+<div class="ajax-cart__overlay js-ajax-cart-overlay"></div>
+<!--end ajax cart overlay-->
+
+<script type="text/javascript" src="{{'advance_cart_drawer.js' |asset_url}}"></script>

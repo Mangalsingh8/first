@@ -1,0 +1,148 @@
+<div class="main-header-section-block">
+  <div class="second-section-header">
+    <img src="{{section.settings.logo_image | img_url:' '  }}">
+    <div class="heading-text">
+      <h2>known benefits<br><span class="second-heading">of build. 100% whey protein</span></h2>
+    </div>
+  </div>
+    <div class="box-section">
+    {{ section.settings.heading }}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "m s a s a",
+    "settings": [
+     {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo image"
+    },
+  {
+  "type": "html",
+  "id": "heading",
+  "label": "heading"
+}
+ ],
+    "presets": [
+    {
+      "name": "new header section",
+      "category": "Blog",
+      "settings": {
+      }
+    }
+  ]
+}
+{% endschema %}
+<style>
+.main-header-section-block{
+  width:100%;
+  background:#000;
+  padding-bottom: 24px;
+  position: relative;
+}
+.second-section-header{
+  width:60%;
+}
+.second-section-header img{
+  width:100%;
+  height:auto;
+}
+.box-section{
+  background: #D2C4A2;
+  height: 371px;
+  width: 65%;
+  margin-left: 35%;
+}
+.heading-text {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+}
+.heading-text h2{
+  font-weight: 800;
+  font-size: 46px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color:white;
+  line-height:34px;
+}
+.second-heading {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #D2C4A2;
+    margin-left: 37px;
+}
+	.main-header-one{
+		margin:0 auto;
+		list-style:none;
+		padding:30px;
+		line-height:30px;
+	}
+li.list1 {
+    position: relative;
+	padding-left:4%;
+	font-size:20px;
+}
+li.list1:before {
+    content: url('https://cdn.shopify.com/s/files/1/0657/3106/8126/files/Layer_1_25x.png');
+    position: absolute;
+    top: 2px;
+    left: 0;
+	}
+li.list2 {
+    position: relative;
+	padding-left:4%;
+	font-size:20px;
+}
+	li.list2:before {
+    content: url('https://cdn.shopify.com/s/files/1/0657/3106/8126/files/Layer_1_1_25x.png?v=1664516858');
+    position: absolute;
+    top: 2px;
+    left: 0;
+	
+
+}
+li.list3 {
+    position: relative;
+	padding-left:4%;
+	font-size:20px;
+}
+	li.list3:before {
+    content: url('https://cdn.shopify.com/s/files/1/0657/3106/8126/files/Layer_1_3_25x.png?v=1664517736');
+    position: absolute;
+    top: 2px;
+    left: 0;
+	
+
+}
+li.list4 {
+    position: relative;
+	padding-left:4%;
+	font-size:20px;
+}
+	li.list4:before {
+    content: url('https://cdn.shopify.com/s/files/1/0657/3106/8126/files/Layer_1_4_25x.png?v=1664517736');
+    position: absolute;
+    top: 2px;
+    left: 0;
+	
+
+}
+li.list5 {
+    position: relative;
+	padding-left:4%;
+	font-size:20px;
+}
+	li.list5:before {
+    content: url('https://cdn.shopify.com/s/files/1/0657/3106/8126/files/Layer_1_25x.png');
+    position: absolute;
+    top: 2px;
+    left: 0;
+	
+
+}
+</style>

@@ -1,0 +1,46 @@
+{% if section.settings.enable_countdown %}
+    <div class="contador-publicitario">
+          {% for block in section.blocks  %}
+        <a href="{{ block.settings.promo_link }}">
+            <div class="container">
+            <h1>{{ block.settings.titulo_pricipal }}</h1>
+     {% if block.settings.timer_date != blank %}
+              <div class="timer">
+                <div class="timer-display">
+                  <div class="timer-block timer-days">
+                    <span class="timer-block__num js-timer-days">00</span>
+                    <span class="timer-block__unit">Days</span>
+                  </div>
+                  <div class="timer-block timer-hours">
+                    <span class="timer-block__num js-timer-hours">00</span>
+                    <span class="timer-block__unit">Horas</span>
+                  </div>
+                  <div class="timer-block timer-minutes">
+                    <span class="separador">:</span>
+                    <span class="timer-block__num js-timer-minutes">00</span>
+                    <span class="timer-block__unit">Minutes</span>
+                  </div>
+                  <div class="timer-block timer-seconds">
+                    <span class="separador">:</span>
+                    <span class="timer-block__num js-timer-seconds">00</span>
+                    <span class="timer-block__unit">Secondos</span>
+                  </div>
+                </div>
+              </div>
+             
+    {% endif %}
+        <div class="row wrapper-contador-publicitario">
+            <div class="col-md-6 enlaces-textos">
+                <div class="col-md-8">
+                    <h2>{{ block.settings.nombre_promo }}</h2>
+                </div>
+                <div class="col-md-4 button">
+                    {{ block.settings.nombre_promo_enlace }}
+                </div>
+            </div>
+        </div>  
+              </div>
+         </a>      
+          {% endfor %} 
+    </div>
+{% endif %}

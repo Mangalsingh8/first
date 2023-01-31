@@ -1,0 +1,570 @@
+{
+  "sections": {
+    "21dd6656-3794-49f1-90e1-a7c0308a27c3": {
+      "type": "mmmmmmmmmmmm",
+      "disabled": true,
+      "blocks": {
+        "a779ba9d-cc98-465b-8c5e-52633dbee150": {
+          "type": "image",
+          "settings": {
+            "announce_text": "𝓦𝓱𝓮𝓻𝓮 𝓭𝓸𝓮𝓼 𝓲𝓽 𝓬𝓸𝓶𝓮"
+          }
+        },
+        "e74da0a4-3177-4a22-86af-73c4c6e510a4": {
+          "type": "image",
+          "settings": {
+            "announce_text": "𝓦𝓱𝓮𝓻𝓮 𝓭𝓸𝓮𝓼 𝓲𝓽 𝓬𝓸𝓶𝓮"
+          }
+        },
+        "9ccbb0b8-b9f8-4a06-8e9e-4686852c285e": {
+          "type": "image",
+          "settings": {
+            "announce_text": "𝓦𝓱𝓮𝓻𝓮 𝓭𝓸𝓮𝓼 𝓲𝓽 𝓬𝓸𝓶𝓮"
+          }
+        }
+      },
+      "block_order": [
+        "a779ba9d-cc98-465b-8c5e-52633dbee150",
+        "e74da0a4-3177-4a22-86af-73c4c6e510a4",
+        "9ccbb0b8-b9f8-4a06-8e9e-4686852c285e"
+      ],
+      "settings": {
+        "color_title": "#ffffff",
+        "background__color": "#37b433"
+      }
+    },
+    "16595300320de196bb": {
+      "type": "slideshow",
+      "blocks": {
+        "1659530032b33a0383-0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/boots-on-blue.jpg",
+            "heading": "𝓦𝓱𝓮𝓻𝓮 𝓭𝓸𝓮𝓼 𝓲𝓽 𝓬𝓸𝓶𝓮 𝓯𝓻𝓸𝓶?",
+            "heading_size": "h1",
+            "subheading": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "1659530032b33a0383-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/woman-looking-at-horizon.jpg",
+            "heading": "𝓦𝓱𝓮𝓻𝓮 𝓬𝓪𝓷 𝓘 𝓰𝓮𝓽 𝓼𝓸𝓶𝓮?",
+            "heading_size": "h1",
+            "subheading": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-2",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1659530032b33a0383-0",
+        "1659530032b33a0383-1"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "1663055280a2be184c": {
+      "type": "image-with-text-section",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/woman-looking-at-horizon.jpg",
+        "layout": "left",
+        "heading": "Image With Text",
+        "text": "on your chosen product, collection, or blog post. Add details Head on availability, style, or even provide a review.",
+        "button_link": "shopify:\/\/collections"
+      }
+    },
+    "ed33e910-ee4e-4452-b935-332729d92c8d": {
+      "type": "collection-section-name",
+      "disabled": true,
+      "blocks": {
+        "44f6a709-46fb-43e7-bc4c-c012f29c6896": {
+          "type": "Slider",
+          "settings": {
+            "collection": "frontpage",
+            "heading2": "Oil",
+            "idname": "shopify:\/\/products\/4-prong-setting-side-stone-halo-engagement-ring"
+          }
+        },
+        "634e272e-a241-4a16-a605-26e8b7428b72": {
+          "type": "Slider",
+          "settings": {
+            "collection": "frontpage",
+            "heading2": "Clean",
+            "idname": "shopify:\/\/products\/4-prong-setting-side-stone-halo-engagement-ring-1"
+          }
+        },
+        "e0d1d709-d8f1-4faf-9ac6-954d8263cdf5": {
+          "type": "Slider",
+          "settings": {
+            "collection": "frontpage",
+            "heading2": "T-Shirt",
+            "idname": ""
+          }
+        },
+        "6e03a87f-fbcc-4358-a16e-fff279ed85e7": {
+          "type": "Slider",
+          "settings": {
+            "collection": "frontpage",
+            "heading2": "Home page",
+            "idname": "shopify:\/\/products\/prong-setting-side-stone-halo-engagement-ring"
+          }
+        },
+        "f40ebafd-04c6-42d1-8c4d-36d78699a8a6": {
+          "type": "Slider",
+          "settings": {
+            "collection": "frontpage",
+            "heading2": "Color",
+            "idname": "shopify:\/\/products\/color-block-men-hooded-neck-red-black-t-shirt"
+          }
+        },
+        "6d9417c7-af37-46ef-92e7-7248970268fe": {
+          "type": "Slider",
+          "settings": {
+            "collection": "frontpage",
+            "heading2": "Hair",
+            "idname": "shopify:\/\/products\/men-boxy-fit-printed-casual-shirt"
+          }
+        }
+      },
+      "block_order": [
+        "44f6a709-46fb-43e7-bc4c-c012f29c6896",
+        "634e272e-a241-4a16-a605-26e8b7428b72",
+        "e0d1d709-d8f1-4faf-9ac6-954d8263cdf5",
+        "6e03a87f-fbcc-4358-a16e-fff279ed85e7",
+        "f40ebafd-04c6-42d1-8c4d-36d78699a8a6",
+        "6d9417c7-af37-46ef-92e7-7248970268fe"
+      ],
+      "settings": {
+        "heading": "Collection product"
+      }
+    },
+    "16629670336dc87eac": {
+      "type": "mangal-singh",
+      "disabled": true,
+      "blocks": {
+        "5f3ec707-4614-420d-8311-cb1953d775fd": {
+          "type": "blog",
+          "settings": {
+            "blog": "mens",
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_view_all": false
+          }
+        },
+        "950e8d15-9a82-4b0b-a326-e9deab60614b": {
+          "type": "blog",
+          "settings": {
+            "blog": "story",
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_view_all": false
+          }
+        },
+        "cc118b63-ff92-47a4-b305-63684a7687a7": {
+          "type": "blog",
+          "settings": {
+            "blog": "section-imges",
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_view_all": false
+          }
+        },
+        "eb01c7f6-9bc3-4456-a9f0-9b22a70228ac": {
+          "type": "blog",
+          "settings": {
+            "blog": "new-blogs",
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_view_all": false
+          }
+        }
+      },
+      "block_order": [
+        "5f3ec707-4614-420d-8311-cb1953d775fd",
+        "950e8d15-9a82-4b0b-a326-e9deab60614b",
+        "cc118b63-ff92-47a4-b305-63684a7687a7",
+        "eb01c7f6-9bc3-4456-a9f0-9b22a70228ac"
+      ],
+      "settings": {
+        "title": "",
+        "blog": "blue-sky",
+        "post_limit": 3,
+        "blog_show_author": true,
+        "blog_show_date": true,
+        "show_view_all": false
+      }
+    },
+    "1663063723feabedf0": {
+      "type": "main-header-section",
+      "disabled": true,
+      "blocks": {
+        "4d1c5e28-302a-40da-91a5-c69b84a7a3cc": {
+          "type": "text",
+          "settings": {
+            "heading-link": "100% Whey Protein Isolate"
+          }
+        },
+        "7c243242-0697-4451-b990-2b78336ffd15": {
+          "type": "text",
+          "settings": {
+            "heading-link": "Fast Absorbing Protein"
+          }
+        },
+        "d60e65dc-a55a-43fa-911a-a2ae360d9b9a": {
+          "type": "text",
+          "settings": {
+            "heading-link": "Helps in Muscle Recovery & Repair"
+          }
+        },
+        "ff40427e-2d77-48aa-a783-d4262766a0c4": {
+          "type": "text",
+          "settings": {
+            "heading-link": "Added Enzymes for Easy Digestion"
+          }
+        },
+        "3df0d293-4358-459d-8a0a-be5f34b9c6d4": {
+          "type": "text",
+          "settings": {
+            "heading-link": "Exclusive International Flavor"
+          }
+        },
+        "8e435539-04c8-4173-ba68-9c9017789ad8": {
+          "type": "text",
+          "settings": {
+            "heading-link": "Low Carbs and Zero Sugar"
+          }
+        },
+        "83930821-18f5-4766-9f4f-4ac4e61c054f": {
+          "type": "text",
+          "settings": {
+            "heading-link": "Zero Lactose"
+          }
+        }
+      },
+      "block_order": [
+        "4d1c5e28-302a-40da-91a5-c69b84a7a3cc",
+        "7c243242-0697-4451-b990-2b78336ffd15",
+        "d60e65dc-a55a-43fa-911a-a2ae360d9b9a",
+        "ff40427e-2d77-48aa-a783-d4262766a0c4",
+        "3df0d293-4358-459d-8a0a-be5f34b9c6d4",
+        "8e435539-04c8-4173-ba68-9c9017789ad8",
+        "83930821-18f5-4766-9f4f-4ac4e61c054f"
+      ],
+      "settings": {
+        "firsimage": "shopify:\/\/shop_images\/pack_shot_1_4.png",
+        "secondimage": "shopify:\/\/shop_images\/kisspng-flavor-vanilla-electronic-cigarette-aerosol-and-li-vanilla-cream-5b154e6f032ba3_1.png",
+        "headings": "WHY",
+        "paragraph": "bUILD."
+      }
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image": "{{ shop.brand.cover_image }}",
+        "image_2": "shopify:\/\/shop_images\/studded-flats.jpg",
+        "image_overlay_opacity": 40,
+        "image_height": "medium",
+        "adapt_height_first_image": true,
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Talk about your brand<\/p>",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "uppercase",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "outline",
+        "enable_desktop_slider": true,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "1664453748b8b6c5ef": {
+      "type": "block-section-mangal",
+      "disabled": true,
+      "settings": {
+        "logo_image": "shopify:\/\/shop_images\/Frame_148.png",
+        "heading": "<div class=\"main\">\n\t\t<ul class=\"main-header-one\">\n\t\t\t<li class=\"list1\">Early Morning:To replenish the nutrients lost while sleeping.<\/li>\n\t\t\t<li class=\"list2\">Pre-Workout:To power your workout.<\/li>\n\t\t\t<li class=\"list3\">Post-Workout:To support recovery and build lean muscle mass.<\/li>\n\t\t\t<li class=\"list4\">In Between Meals:To keep you in anabolic phase throughout day.<\/li>\n\t\t\t<li class=\"list5\">At Bedtime:To prevent muscle loss while sleeping.<\/li>\n\t\t<\/ul>\n\t<\/div>"
+      }
+    },
+    "collage": {
+      "type": "collage",
+      "disabled": true,
+      "blocks": {
+        "collection-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "product": "men-boxy-fit-printed-casual-shirt",
+            "second_image": true
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        }
+      },
+      "block_order": [
+        "collection-0",
+        "product",
+        "collection-1"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "disabled": true,
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hipster-drinking-herbal-tea.jpg",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/dressed-for-spring.jpg",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": "shopify:\/\/products\/boys-solid-pure-cotton-t-shirt-orange-pack-of-1"
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/model-in-neutral-colors-by-window.jpg",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "4bb32ab5-fa03-42eb-9af6-1c4d4d0d2a7a": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/studded-flats.jpg",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3",
+        "4bb32ab5-fa03-42eb-9af6-1c4d4d0d2a7a"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1659615269baed3ff6": {
+      "type": "timer-counter",
+      "disabled": true,
+      "blocks": {
+        "1659615269b4a6f9ab-0": {
+          "type": "images",
+          "settings": {
+            "titulo_pricipal": "50% offer free shoping",
+            "timer_date": "Augu 08, 2022 05:46",
+            "nombre_promo": "",
+            "nombre_promo_enlace": "Buy Now",
+            "promo_link": "shopify:\/\/collections"
+          }
+        }
+      },
+      "block_order": [
+        "1659615269b4a6f9ab-0"
+      ],
+      "settings": {
+        "enable_countdown": true
+      }
+    },
+    "9d16ddbf-f0b6-4632-98d8-10eed89c4ea9": {
+      "type": "ddddd",
+      "settings": {
+        "title": "Featured Collection",
+        "collection": "home",
+        "product_count": 9
+      }
+    }
+  },
+  "order": [
+    "21dd6656-3794-49f1-90e1-a7c0308a27c3",
+    "16595300320de196bb",
+    "1663055280a2be184c",
+    "ed33e910-ee4e-4452-b935-332729d92c8d",
+    "16629670336dc87eac",
+    "1663063723feabedf0",
+    "image_banner",
+    "rich_text",
+    "featured_collection",
+    "1664453748b8b6c5ef",
+    "collage",
+    "video",
+    "multicolumn",
+    "1659615269baed3ff6",
+    "9d16ddbf-f0b6-4632-98d8-10eed89c4ea9"
+  ]
+}

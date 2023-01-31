@@ -1,0 +1,557 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<div class="full--color">
+<div class="page-width">
+   <div class="main-blocks-haed " data-aos="fade-right" data-aos-easing="linear" data-aos-duration="800">
+    <h2>BLOGS<br><span class="most-blocks-head">MUST READ</span></h2>
+   </div>
+    <div class="main-div" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="800"><a href="" class="btn-head" >View All<span></span></a></div>
+<!--   <div class="slick-slider-block"> -->
+<h1>{{ section.settings.title | escape }}</h1>
+<div class="main-block-section">
+  <div class="second-div"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1100">
+  {%- assign blog = blogs[section.settings.blog] -%}
+    {%- if blog.articles_count > 0 -%}
+  <ul class="images-size mobile_slider">
+      {%- for article in blog.articles -%}
+          <li class="image-blocls">
+            <a href="{{ article.url }} ">
+              {%- if article.image -%}
+              {{ article | img_url: ' ', scale: 2 | img_tag: '' }}
+              {%- endif -%}
+              {%- if section.settings.blog_show_author -%}       
+              <span class="author">
+              {{ article.author }}
+              </span>
+              {%- endif -%}
+              {%- if section.settings.blog_show_date -%}
+              <span class="date">
+              {{ article.published_at | date: "%d %b %Y" }}
+              </span>
+              {%- endif -%}
+              <p class="heading1">
+                {{ article.title }}
+              </p>
+            </a>
+      {%- if article.excerpt.size > 0 -%}
+          {{ article.excerpt }}
+      {%- else -%}
+          {{ article.content | strip_html | truncate: 150 }}
+      {%- endif -%}
+      {%- if article.tags.size > 0 -%}
+          <ul aria-label="{{ 'blogs.article.tags' }}">
+              {%- for tag in article.tags -%}
+                <li><a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a></li>
+              {%- endfor -%}
+          </ul>
+          {%- endif -%}
+        <ul>
+           <li>
+            <a href="{{ article.url }}" aria-label="Read more: {{ article.title }}" class="btn-head" >Read more<span></span></a>
+          </li>
+          {%- if blog.comments_enabled? and article.comments_count > 0 -%}
+            <li>
+              <a href="{{ article.url }}#comments">
+                {{ article.comments_count }} comments
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </li>
+    {%- endfor -%}
+  </ul>
+    {%- endif -%}
+    {%- if section.settings.show_view_all -%}
+      <a href="{{ blog.url }}"
+        class="btn"
+        aria-label="{{ 'blogs.article.view_all_blogs' }}">
+        {{ 'blogs.article.view_all' }}
+      </a>
+    {%- endif -%}
+    </div>
+
+    
+<div class="sec-2" data-aos="fade-up"data-aos-easing="linear" data-aos-duration="1100">
+  <div class="section--1-block-2">
+    {% for myblogs in section.blocks %}
+    {%- assign blog = blogs[myblogs.settings.blog] -%}
+  <ul class="blog-section-2 mobile_slider">
+       {%- for article in blog.articles -%}
+        <li>
+           <a href="{{ article.url }}">
+          {%- if article.image -%}
+            {{ article | img_url: '', scale: 2 | img_tag: '' }}
+          {%- endif -%}
+          {%- if myblogs.settings.blog_show_author -%}
+            <span class="author">
+             {{ article.author }}
+            </span>
+          {%- endif -%}
+          {%- if myblogs.settings.blog_show_date -%}
+            <span class="date">
+              {{ article.published_at | date: "%d %b %Y" }}
+            </span>
+          {%- endif -%}
+          <p class="heading1">{{ article.title }}</p>
+        </a>
+      {%- if article.excerpt.size > 0 -%}
+          {{ article.excerpt }}
+      {%- else -%}
+          {{ article.content | strip_html | truncate: 150 }}
+      {%- endif -%}
+      {%- if article.tags.size > 0 -%}
+          <ul aria-label="{{ 'blogs.article.tags' }}">
+              {%- for tag in article.tags -%}
+                <li><a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a></li>
+              {%- endfor -%}
+          </ul>
+          {%- endif -%}
+        <ul>
+          <li>
+            <a href="{{ article.url }}" aria-label="Read more: {{ article.title }}" class="btn-head" >Read more<span></span></a>
+          </li>
+          {%- if blog.comments_enabled? and article.comments_count > 0 -%}
+            <li>
+              <a href="{{ article.url }}#comments">
+                {{ article.comments_count }} comments
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </li>
+    {%- endfor -%}
+  </ul>
+    {%- endfor -%}
+    {%- if myblogs.settings.show_view_all -%}
+      <a href="{{ blog.url }}"
+        class="btn" aria-label="{{ 'blogs.article.view_all_blogs' }}">
+        {{ 'blogs.article.view_all' }}
+      </a>
+    {%- endif -%}
+    </div>
+  </div>
+    </div>
+</div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "mangal",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "label": "Posts",
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' button",
+      "default": false
+    }
+  ],
+   "blocks": [
+    {
+      "type": "blog",
+      "name": "Blog",
+      "settings": [
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "blog"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "label": "Show author",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "label": "Show date",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_view_all",
+          "label": "Show 'View all' button",
+          "default": false
+        }
+      ] 
+    }
+   ],
+  "presets": [
+    {
+      "name": "mangalstrr",
+      "category": "Blog",
+      "settings": {
+        "blog": "News",
+        "post_limit": 3
+      }
+    }
+  ]
+}
+{% endschema %}
+<style>
+.btn-head {
+  display: flex;
+  font-size: 32px;
+  text-decoration: none;
+  justify-content: end;
+  align-items: center;
+  color: #fff;
+  transition: color 3s;
+  margin-right: 25px;
+}
+.btn-head:hover{
+  color: #785F37;
+}
+.btn-head span {
+  min-height: 32px;
+  min-width: 32px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  left: 20px;
+  transition-property: left;
+  transition-duration: 5s;
+  transition-delay: 0s;
+}
+.btn-head span::before {
+  content: "\2192";
+  position: absolute;
+  left: -35%;
+  margin-top:-4px;
+  font-size: 22px;
+  z-index: 9;
+}
+.btn-head span:hover:before{
+  font-size:14px;
+ margin-top:-15px;
+}
+.btn-head:hover span::before{
+ font-size: 28px;
+/*    margin-left:10px; */
+  color: #fff;
+}
+.btn-head:hover span{
+  left: 1%;
+  background-color: #785F37;
+}
+.sec-2 {
+  width: 60%;
+}
+
+.btn-head span:hover{
+  left: 1%;
+}
+.full--color {
+  background: #000;
+}
+a.btn-head {
+  font-size: 16px;
+}
+*{
+  list-style:none;
+}
+.main-block-section {
+  display: flex;
+  width: 100%;
+}
+.second-div {
+  width: 40%;
+}
+.section--1-block-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+ul.blog-section-2 {
+  width: calc(50%);
+  padding-left: 32px;
+}
+.section--1-block-2 img {
+  width: 100%;
+}
+li.image-blocls img {
+  width: 100%;
+}
+ul.blog-section-2 a {
+  text-decoration: none;
+}
+li.image-blocls a {
+  text-decoration: none;
+}
+span.author {
+  font-family: 'Avenir';
+  font-weight: 500;
+  font-size: 16px;
+  color: #CBB682;
+}
+span.date {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #D6D5D5;
+  margin-left: 11px;
+}
+p.heading1 {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 22px;
+  color: #FFFFFF;
+  margin:0px;
+}
+.main-blocks-haed {
+  width: 94%;
+}
+.main-blocks-haed h2{
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 800;
+  line-height: 55px;
+  font-size:45px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.main-blocks-haed h2 span{
+  line-height: 1;
+  margin-left: 50px;
+  font-size: 45px;
+  color: #D2C4A2;
+}
+h2.spaaa {
+  letter-spacing: 0.02em;
+  color: #D2C4A2;
+}
+.heading-block-two {
+  display: flex;
+  width: 98%;
+  float: right;
+  justify-content: space-between;
+}
+.main-div a {
+  font-size: 32px;
+}
+.most-blocks-head{
+  line-height:1;
+  marggin-left:50px;
+  font-size:52px;
+  color: #D2C4A2;
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+.main-block-section{
+  width:100%;
+}
+.main-blocks-haed h2 {
+  font-size: 32px;
+  font-weight:800;
+  line-height:28px;
+} 
+.heading-block-two {
+  width: 100%;
+  float: right;
+  justify-content: space-between;
+}
+.main-blocks-haed {
+  width: 94%;
+  margin: auto;
+}
+.main-div a {
+  display: flex;
+  font-size: 18px;
+  text-decoration: none;
+  justify-content: end;
+  align-items: center;
+  color: #fff;
+  transition: color 3s;
+  margin-right: 41px;
+  font-weight:800;
+}
+a.slick-head1.slick-arrow {
+  position: absolute;
+  bottom: -6%;
+  left:37%;
+  right: 1%;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  border: 2px solid #CBB682;
+  border-radius: 100%;
+  color: #CBB682;
+  font-size: 24px;
+}
+a.slick-head2.slick-arrow {
+  position: absolute;
+  left: 54%;
+  bottom: -6%;
+  right: 1%;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  border: 2px solid #CBB682;
+  border-radius: 100%;
+  color: #CBB682;
+  font-size: 24px;
+}
+a.slick-head1.slick-arrow:hover{
+  background:#CBB682;
+  color:#fff;
+}
+a.slick-head2.slick-arrow:hover{
+  background:#CBB682;
+  color:#fff;
+}
+.icons {
+  text-align: center;
+}
+.main-blocks-haed h2 span {
+  line-height: 1;
+  margin-left: 50px;
+  font-size: 24px;
+  font-weight:800;
+  color: #D2C4A2;
+}
+.main-block-section {
+  width: 100%;
+}
+.second-div {
+  width: 100%;
+}
+.slick-slide img {
+  display: block;
+  width: 100%;
+  height: 285px;
+}
+.btn-head span::before {
+  content: "\2192";
+  position: absolute;
+  left: -50%;
+  margin-top: -9px;
+  font-size: 18px;
+  z-index: 9;
+}
+.btn-head span {
+  min-height: 20px;
+  min-width: 20px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  left: 20px;
+  transition-property: left;
+  transition-duration: 5s;
+  transition-delay: 0s;
+}
+p.heading1 {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 22px;
+  color: #FFFFFF;
+  margin: 0px;
+}
+span.author {
+  font-family: 'Avenir';
+  font-weight: 500;
+  font-size: 14px;
+  color: #CBB682;
+}
+.page-width {
+  padding: 26px 14px;
+}
+.sec-2 {
+    display: none;
+  }
+}
+ 
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+ if ($(window).width() <550) {
+$(document).ready(function(){
+        $('.main-block-section').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: false,
+          autoplaySpeed: 2000,
+          infinite:true,
+          arrows:true,
+          prevArrow: '<a href="javascript:void(0)" class="slick-head1"><i class="fa fa-long-arrow-left"></i></a>',
+          nextArrow: '<a href="javascript:void(0)" class="slick-head2"><i class="fa fa-long-arrow-right"></i></a>',
+           responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+   });
+});
+   
+        }
+
+  $(document).ready(function(){
+       $('.main-block-section').slick('unslick');
+    $('.mobile_slider').wrapAll('<div class="mobile_main_slider"></div>');
+    $('.mobile_main_slider').slick({
+       slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: false,
+          autoplaySpeed: 2000,
+          infinite:true,
+          arrows:true,
+          prevArrow: '<a href="javascript:void(0)" class="slick-head1"><i class="fa fa-long-arrow-left"></i></a>',
+          nextArrow: '<a href="javascript:void(0)" class="slick-head2"><i class="fa fa-long-arrow-right"></i></a>'
+    });
+  });
+ AOS.init();
+</script>

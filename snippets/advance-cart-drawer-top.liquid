@@ -1,0 +1,39 @@
+<!--  advance-cart-drawer-top.liquid -->
+{{ 'top__cart_drawer.css' | asset_url | stylesheet_tag}}
+{% assign total_saving = 0 %}
+{% for item in cart.items %}
+{% if item.variant.compare_at_price > item.variant.price %}
+{% capture saving %}{{ item.variant.compare_at_price | minus: item.variant.price | times:item.quantity | divided_by: 100 | abs }}{% endcapture %}
+{% assign total_saving = saving | plus: total_saving %}
+{% endif %} 
+{% endfor %}
+<div class="car__top">
+  
+  <div class="cart_icon_text saving__mny">
+    <div class="cart__top_icon">{% render 'icons', icon:'cart_icon'%}</div>
+    <div class="cart_top_counter totalCartItem"><span>{{cart.item_count}}</span> Item</div>
+  </div>
+  {% comment %}{% endcomment %}
+  <div class="cart_icon_text saving__mny">
+    <div class="cart__top_icon">{% render 'icons', icon:'save_icon'%}</div>
+    <div class="cart_top_saving">You save <span class="you_save__value"></span></div>
+    {% comment %}{{total_saving |times:100 |money_without_trailing_zeros }}{% endcomment %}
+  </div>
+<!--   <div class="totalCartItem">
+      Total Item :<span>{{ cart.item_count }}</span>
+  </div> -->
+<!--     <span><span class="gift_wrap_'+itemPrice+'"style="color: #bf285e;font-weight: 700;font-size: 12px; padding-left: 18px;">Additional 5% discount on online payment mode &nbsp <span id="additional_discount_price">₹</span></span></span>
+ -->
+  {% comment %}
+  <div class="cart_icon_text">
+    <div class="cart__top_icon">{% render 'icons', icon:'buying_icon'%}</div>
+    <div class="cart_top_buying"><span>67% C02 saved</span> when buying this</span></div>
+  </div>
+  
+  <div class="ajax-cart-drawer__buttons_inner chkbtn">
+    <a href="/checkout/" class="button button_checkout js-button">
+      <span>Checkout</span>
+    </a>
+  </div>
+  {% endcomment %}
+</div>

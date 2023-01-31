@@ -1,0 +1,49 @@
+
+{% schema %}
+  {
+    "name": "Contador Publicitario",
+ 	"max_blocks": 1,
+    "settings": [ {
+          "type": "checkbox",
+          "id": "enable_countdown",
+          "default": false,
+          "label": "Activar Contador publicitario"
+      }
+	],
+    "blocks" : [ 
+          {
+            "type": "images",
+            "name": "Bloque",
+            "settings": [
+			 {
+                  "type": "text",
+                  "id": "titulo_pricipal",
+                  "label": "Titulo principal"
+              },
+              {
+                  "type": "text",
+                  "id": "timer_date",
+                  "label": "Fecha de finalizacion y hora",
+                  "info": "Formato: Sept 30, 2021 00:00"
+              },
+              {
+                  "type": "text",
+                  "id": "nombre_promo",
+                  "label": "Sub Titulo"
+              },
+			  {
+                  "type": "text",
+                  "id": "nombre_promo_enlace",
+                  "label": "Texto de Boton"
+              },
+              {
+                  "type": "url",
+                  "id": "promo_link",
+                  "label": "Link URL"
+             }
+         ]
+       }
+     ]
+    
+  }
+{% endschema %}

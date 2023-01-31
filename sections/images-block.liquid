@@ -1,0 +1,101 @@
+<div class="main-header">
+   {% for block in section.blocks %}
+      {%if block.settings.image != blank %}
+  <div class="images-galary">
+    <img src="{{ block.settings.image | img_url:' ' }}">
+    </div>
+<div class="all-heading">
+    <h2>{{ block.settings.heading-link }}</h2>
+    <p>{{ block.settings.paragraph-heading }}</p>
+    <button>Buy Now</button>
+  </div>
+  {% endif %}
+{% endfor %}
+</div>
+{% schema %}
+{
+  "name": "Images",
+  "settings": [
+  
+  ],
+   "blocks": [
+   {
+     "name": "Image",
+     "type": "Image",
+     "settings": [
+       {
+         "type": "image_picker",
+         "id": "image",
+         "label": "Image"
+       },
+       {
+        "type": "text",
+        "id": "heading-link",
+        "label": "Heading",
+        "default": "Quick links"
+      },
+       {
+        "type": "text",
+        "id": "paragraph-heading",
+        "label": "Paragraph",
+        "default": "Quick links"
+      }
+     ]
+   }
+ ],
+"presets": [
+     {
+      "name":"Gallary",
+      "category":"custom"
+     }
+  ]
+}
+{% endschema %}
+
+
+<style>
+  .main-header{
+    display:flex;
+    justify-content:center; 
+    position: relative;
+}
+.images-galary {
+  display: grid;
+  justify-items: center;  
+}
+.all-heading h2{
+   position: absolute;
+  bottom:90px;
+  float:left;
+}
+.all-heading 2{
+   position: absolute;
+  bottom: 8px;
+  right: 16px;
+  float:right;
+}
+
+ @media only screen and (max-width:768px){
+    .main-header{
+      display:block;
+    }
+   .images-galary{
+     width:100%;
+     margin-top: 12px;
+   }
+   .images-galary img{
+     width:100%;
+     margin-top: 12px;
+   }
+  }
+   @media only screen and (min-width:768px){
+    .main-header{
+      width:100%;
+    }
+     .images-galary img{
+     width:95%;
+    display:flex;
+    justify-content:center;
+   }
+  }
+</style>
